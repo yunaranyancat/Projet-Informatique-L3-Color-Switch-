@@ -28,7 +28,7 @@ import java.util.Random;
 public class Player {
 	private int size;
 	private Rectangle viewPort = new Rectangle(1280, 1024);
-	int viewPortWidth = 450;
+	int viewPortWidth = 451;
 	int viewPortHeight = 800;
 	int leftX = 50;
 	int rightX = leftX+viewPortWidth;
