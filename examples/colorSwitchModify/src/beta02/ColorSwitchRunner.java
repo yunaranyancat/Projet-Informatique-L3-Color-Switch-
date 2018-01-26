@@ -11,4 +11,5 @@ public class ColorSwitchRunner {
     int fps = 100;// frames per second
     new ColorSwitch(fps);
   } // end of main()
+  // Hello world
 }// end class ColorSwitchRunner
