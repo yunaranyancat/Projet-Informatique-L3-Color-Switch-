@@ -30,14 +30,14 @@ public class Cross extends Obstacle {
 		Line2D line3 = new Line2D.Double(250, 350, 250, 500);
 		Line2D line4 = new Line2D.Double(100, 350, 250, 350);
 
-	    AffineTransform at = 
-	        AffineTransform.getRotateInstance(Math.toRadians(i), line.getX1(), line.getY1());
-	    AffineTransform at2 = 
-		        AffineTransform.getRotateInstance(Math.toRadians(i + 90), line2.getX1(), line2.getY1());
-	    AffineTransform at3 = 
-		        AffineTransform.getRotateInstance(Math.toRadians(i + 180), line3.getX1(), line3.getY1());
-	    AffineTransform at4 = 
-		        AffineTransform.getRotateInstance(Math.toRadians(i + 270), line4.getX1(), line4.getY1());
+	    AffineTransform at = AffineTransform.getRotateInstance(Math.toRadians(i), 
+	    		line.getX2(), line.getY2());
+	    AffineTransform at2 = AffineTransform.getRotateInstance(Math.toRadians(i), 
+	    		line2.getX1(), line2.getY1());
+	    AffineTransform at3 = AffineTransform.getRotateInstance(Math.toRadians(i),
+	    		line3.getX1(), line3.getY1());
+	    AffineTransform at4 = AffineTransform.getRotateInstance(Math.toRadians(i),
+	    		line4.getX2(), line4.getY2());
 
 	    // Draw the rotated line
 	    g.setColor(Entity.colors[0]);
