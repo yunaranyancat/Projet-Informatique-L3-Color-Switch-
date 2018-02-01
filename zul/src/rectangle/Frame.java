@@ -36,7 +36,7 @@ public class Frame extends JFrame{
 	{
 		Frame f = new Frame();
 		Graphics2D g ;
-		f.paint(g);
+		f.paint(null);
 		
 	}
 }
