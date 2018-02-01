@@ -3,7 +3,7 @@ package beta02;
  * main-class for ColorSwitch ... used to launch the game
  */
 
-public class ColorSwitchRunner {
+public class Launcher {
   /**
    * main .. args will be - Xms2048m
    */
