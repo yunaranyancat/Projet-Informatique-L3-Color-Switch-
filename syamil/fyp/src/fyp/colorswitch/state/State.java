@@ -20,8 +20,13 @@ public abstract class State {
 	
 	protected Handler handler;
 	
+	protected float midWidth;
+	protected float midHeight;
+	
 	public State(Handler handler) {
 		this.handler = handler;
+		this.midWidth = handler.getWidth()/2;
+		this.midHeight = handler.getHeight()/2;
 	}
 	
 	public abstract void tick();

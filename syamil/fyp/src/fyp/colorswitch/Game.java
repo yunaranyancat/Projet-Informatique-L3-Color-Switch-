@@ -9,6 +9,7 @@ import fyp.colorswitch.gfx.Assets;
 import fyp.colorswitch.gfx.GameCamera;
 import fyp.colorswitch.input.KeyManager;
 import fyp.colorswitch.input.MouseManager;
+import fyp.colorswitch.state.GameOverState;
 import fyp.colorswitch.state.GameState;
 import fyp.colorswitch.state.MenuState;
 import fyp.colorswitch.state.State;
@@ -30,6 +31,7 @@ public class Game implements Runnable{
 	// State
 	public State gameState;
 	public State menuState;
+	public State gameOverState;
 	
 	// Input
 	private KeyManager keyManager;
@@ -60,7 +62,8 @@ public class Game implements Runnable{
 		
 		gameState = new GameState(handler);
 		menuState = new MenuState(handler);
-		State.setState(gameState);
+		gameOverState = new GameOverState(handler);
+		State.setState(menuState);
 	}
 	
 	public void tick() {

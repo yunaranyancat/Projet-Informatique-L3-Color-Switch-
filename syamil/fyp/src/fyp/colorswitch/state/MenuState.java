@@ -17,9 +17,6 @@ public class MenuState extends State {
 	private EntityManager entities;
 	private UIManager uiManager;
 	
-	private int midWidth = handler.getWidth()/2;
-	private int midHeight = handler.getHeight()/2;
-	
 	public MenuState(Handler handler) {
 		super(handler);
 		entities = new EntityManager(handler);

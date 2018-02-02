@@ -49,6 +49,9 @@ public class GameState extends State {
 	@Override
 	public void tick() {
 		e.tick();
+		if(isGameOver())
+			State.setState(handler.getGame().gameOverState);
+			
 	}
 
 	@Override
@@ -74,6 +77,14 @@ public class GameState extends State {
 	
 	public EntityManager getEntityManager() {
 		return e;
+	}
+	
+	public boolean isGameOver() {
+		// to add : bodycollisions with colors
+		if(player.getY() >= 680)
+			return true;
+		else 
+			return false;
 	}
 
 }
