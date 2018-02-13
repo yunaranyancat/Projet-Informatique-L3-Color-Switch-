@@ -11,25 +11,34 @@ import fyp.colorswitch.entity.Entity;
 
 public class Cross extends Obstacle {
 
+	private Line2D line, line2, line3, line4;
+	private int ha1, ha2, ha3, ha4;
+	private int hb1, hb2, hb3, hb4;
+	
 	public Cross(Handler handler, float yPosition) {
 		super(handler, yPosition);
-		// TODO Auto-generated constructor stub
+		
+		
+		ha1 = 200; hb1 = 350;
+		ha2 = 350; hb2 = 350;
+		ha3 = 350; hb3 = 500;
+		ha4 = 350; hb4 = 350;
 	}
 
 	@Override
 	public void tick() {
-		// TODO Auto-generated method stub
 		
 	}
 	
 	int i = 0;
 	public void rotateLine(Graphics2D g) {
 		
-		Line2D line = new Line2D.Double(250, 200, 250, 350);
-		Line2D line2 = new Line2D.Double(250, 350, 400, 350);
-		Line2D line3 = new Line2D.Double(250, 350, 250, 500);
-		Line2D line4 = new Line2D.Double(100, 350, 250, 350);
-
+		line = new Line2D.Double(250, ha1 - handler.getGameCamera().getyOffset(), 250, hb1 - handler.getGameCamera().getyOffset());
+		line2 = new Line2D.Double(250, ha2 - handler.getGameCamera().getyOffset(), 400, hb2 - handler.getGameCamera().getyOffset());
+		line3 = new Line2D.Double(250, ha3 - handler.getGameCamera().getyOffset(), 250, hb3 - handler.getGameCamera().getyOffset());
+		line4 = new Line2D.Double(100, ha4 - handler.getGameCamera().getyOffset(), 250, hb4 - handler.getGameCamera().getyOffset());
+		
+		
 	    AffineTransform at = AffineTransform.getRotateInstance(Math.toRadians(i), 
 	    		line.getX2(), line.getY2());
 	    AffineTransform at2 = AffineTransform.getRotateInstance(Math.toRadians(i), 
@@ -58,11 +67,14 @@ public class Cross extends Obstacle {
 		
 		rotateLine(g);
 	}
-
-	@Override
-	public boolean collidesWith(Double body, int bodyColor) {
-		// TODO Auto-generated method stub
-		return false;
+	
+	public boolean collides(Line2D.Float body, int color) {
+		if(body.intersectsLine(line)  )
+			return true;
+		else
+			return false;
+		
 	}
+
 
 }

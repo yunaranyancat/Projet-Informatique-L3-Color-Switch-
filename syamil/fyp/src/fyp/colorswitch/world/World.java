@@ -3,11 +3,14 @@ package fyp.colorswitch.world;
 import java.awt.Graphics2D;
 
 import fyp.colorswitch.Handler;
+import fyp.colorswitch.entity.Entity;
 import fyp.colorswitch.entity.EntityManager;
 import fyp.colorswitch.entity.actor.Player;
 import fyp.colorswitch.entity.actor.ScoreStar;
 import fyp.colorswitch.entity.actor.Switcher;
 import fyp.colorswitch.entity.obstacle.Circle;
+import fyp.colorswitch.entity.obstacle.Cross;
+import fyp.colorswitch.entity.obstacle.Rectangle;
 import fyp.colorswitch.state.State;
 
 public class World {
@@ -26,15 +29,15 @@ public class World {
 		
 		// add entities
 		em.addEntity(new Circle(handler, midHeight, 200, 3));
-		//e.addEntity(new Circle(handler, midHeight, 100, 2));
-		//e.addEntity(new Rectangle(handler, 300));
-		//e.addEntity(new Cross(handler, 350));
+		//em.addEntity(new Circle(handler, midHeight, 100, 2));
+		//em.addEntity(new Rectangle(handler, 300));
+		//em.addEntity(new Cross(handler, 350));
 		// test 
 		em.addEntity(new ScoreStar(handler, midHeight, 10, 20));
 		em.addEntity(new Switcher(handler, midWidth));
 				
 		// add player last to render it in front of other entities
-		player = new Player(handler, handler.getHeight() - 100);
+		player = new Player(handler, handler.getHeight() - 100, 0);
 		em.addEntity(player);
 	}
 	
@@ -44,21 +47,25 @@ public class World {
 	
 	public void tick() {
 		em.tick();
+		System.out.println(handler.getHeight());
 		if(isGameOver()) {
 			State.setState(handler.getGame().menuState);
-		}
+		}	
 	}
 	
 	public void render(Graphics2D g) {
+		
 		em.render(g);
 	}
 	
 	public boolean isGameOver() {
 		// to add : bodycollisions with colors
-		if(player.getY() >= 680)
+		if(player.getyPosition() >= 680)
 			return true;
 		else 
 			return false;
 	}
+	
+	
 	
 }
