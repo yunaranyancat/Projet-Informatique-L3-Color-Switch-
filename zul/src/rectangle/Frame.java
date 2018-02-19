@@ -1,8 +1,6 @@
-package rectangle;
-import java.applet.Applet;
+/*package rectangle;
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import javax.swing.JFrame;
@@ -10,6 +8,7 @@ import javax.swing.JFrame;
 
 public class Frame extends JFrame{
 
+	private static final long serialVersionUID = 1L;
 	public static final Color colors[] = {new Color(50, 226, 241),
 	        new Color(244, 222, 14), new Color(140, 18, 251), new Color(255, 0, 128)};
 
@@ -35,8 +34,8 @@ public class Frame extends JFrame{
 	public static void main(String[] args)
 	{
 		Frame f = new Frame();
-		Graphics2D g ;
-		f.paint(null);
+		
 		
 	}
 }
+*/
