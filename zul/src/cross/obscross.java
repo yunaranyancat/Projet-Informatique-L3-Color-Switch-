@@ -281,7 +281,7 @@ public class obscross extends JPanel implements ActionListener {
 	}
 
 	public static void main(String[] args) {
-		JFrame frm = new JFrame("Rectangle");
+		JFrame frm = new JFrame("Cross");
 		frm.add(new obscross());
 		frm.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frm.setSize(xsizeFrame,ysizeFrame);
