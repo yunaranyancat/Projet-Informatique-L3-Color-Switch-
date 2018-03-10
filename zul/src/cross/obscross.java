@@ -31,6 +31,13 @@ public class obscross extends JPanel implements ActionListener {
 	public static int xMidFrame = xsizeFrame/2;
 	public static int yMidFrame = ysizeFrame/2;
 	
+	AffineTransform at45 = AffineTransform.getRotateInstance(Math.toRadians(45),xMidFrame,yMidFrame);
+	AffineTransform at90 = AffineTransform.getRotateInstance(Math.toRadians(90),xMidFrame,yMidFrame);
+	AffineTransform at135 = AffineTransform.getRotateInstance(Math.toRadians(135),xMidFrame,yMidFrame);
+	AffineTransform at180 = AffineTransform.getRotateInstance(Math.toRadians(180),xMidFrame,yMidFrame);
+	AffineTransform at225 = AffineTransform.getRotateInstance(Math.toRadians(225),xMidFrame,yMidFrame);
+	AffineTransform at270 = AffineTransform.getRotateInstance(Math.toRadians(270),xMidFrame,yMidFrame);
+	AffineTransform at315 = AffineTransform.getRotateInstance(Math.toRadians(315),xMidFrame,yMidFrame);
 	
 	private int state;
 	
@@ -48,230 +55,123 @@ public class obscross extends JPanel implements ActionListener {
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setStroke(new BasicStroke(strokeval));
 		
+		Line2D lintop = new Line2D.Float(xMidFrame,yMidFrame-strokeval-100,xMidFrame,yMidFrame-strokeval);
+		Line2D linright = new Line2D.Float(xMidFrame+strokeval,yMidFrame,xMidFrame+100+strokeval,yMidFrame);
+		Line2D linbot = new Line2D.Float(xMidFrame,yMidFrame+strokeval,xMidFrame,yMidFrame+strokeval+100);
+		Line2D linleft = new Line2D.Float(xMidFrame-strokeval-100,yMidFrame,xMidFrame-strokeval,yMidFrame);
+		
 		if (state == 0) {
 			
 	        g2.setColor(colors[0]);
-			Line2D lintop = new Line2D.Float(xMidFrame,yMidFrame-strokeval-100,xMidFrame,yMidFrame-strokeval);
 			g2.draw(lintop);
 			
 			g2.setColor(colors[1]);
-			Line2D linright = new Line2D.Float(xMidFrame+strokeval,yMidFrame,xMidFrame+100+strokeval,yMidFrame);
 			g2.draw(linright);
 			
 			g2.setColor(colors[2]);
-			Line2D linbot = new Line2D.Float(xMidFrame,yMidFrame+strokeval,xMidFrame,yMidFrame+strokeval+100);
 			g2.draw(linbot);
 			
 			g2.setColor(colors[3]);
-			Line2D linleft = new Line2D.Float(xMidFrame-strokeval-100,yMidFrame,xMidFrame-strokeval,yMidFrame);
 			g2.draw(linleft);
 			
 			
 		}else if(state == 1) {
 	        g2.setColor(colors[0]);
-			Line2D lintop = new Line2D.Float(xMidFrame,yMidFrame-strokeval-100,xMidFrame,yMidFrame-strokeval);
+			g2.draw(at45.createTransformedShape(lintop));
 			
-			AffineTransform attop = AffineTransform.getRotateInstance(Math.toRadians(45),xMidFrame,yMidFrame);
-			g2.draw(attop.createTransformedShape(lintop));
-			
-			//
 			g2.setColor(colors[1]);
-			Line2D linright = new Line2D.Float(xMidFrame+strokeval,yMidFrame,xMidFrame+100+strokeval,yMidFrame);
+			g2.draw(at45.createTransformedShape(linright));
 			
-			AffineTransform atright = AffineTransform.getRotateInstance(Math.toRadians(45), xMidFrame,yMidFrame);
-			g2.draw(atright.createTransformedShape(linright));
-			
-			//
 			g2.setColor(colors[2]);
-			Line2D linbot = new Line2D.Float(xMidFrame,yMidFrame+strokeval,xMidFrame,yMidFrame+strokeval+100);
+			g2.draw(at45.createTransformedShape(linbot));
 			
-			AffineTransform atbot = AffineTransform.getRotateInstance(Math.toRadians(45), xMidFrame,yMidFrame);
-			g2.draw(atbot.createTransformedShape(linbot));
-			
-			//
 			g2.setColor(colors[3]);
-			Line2D linleft = new Line2D.Float(xMidFrame-strokeval-100,yMidFrame,xMidFrame-strokeval,yMidFrame);
-			
-			AffineTransform atleft = AffineTransform.getRotateInstance(Math.toRadians(45),xMidFrame,yMidFrame);
-			g2.draw(atleft.createTransformedShape(linleft));
+			g2.draw(at45.createTransformedShape(linleft));
 			
 			
 			
 		}else if (state == 2) {
 
 	        g2.setColor(colors[0]);
-			Line2D lintop = new Line2D.Float(xMidFrame,yMidFrame-strokeval-100,xMidFrame,yMidFrame-strokeval);
+			g2.draw(at90.createTransformedShape(lintop));
 			
-			AffineTransform attop = AffineTransform.getRotateInstance(Math.toRadians(90), xMidFrame,yMidFrame);
-			g2.draw(attop.createTransformedShape(lintop));
-			
-			//
 			g2.setColor(colors[1]);
-			Line2D linright = new Line2D.Float(xMidFrame+strokeval,yMidFrame,xMidFrame+100+strokeval,yMidFrame);
+			g2.draw(at90.createTransformedShape(linright));
 			
-			AffineTransform atright = AffineTransform.getRotateInstance(Math.toRadians(90), xMidFrame,yMidFrame);
-			g2.draw(atright.createTransformedShape(linright));
-			
-			//
 			g2.setColor(colors[2]);
-			Line2D linbot = new Line2D.Float(xMidFrame,yMidFrame+strokeval,xMidFrame,yMidFrame+strokeval+100);
+			g2.draw(at90.createTransformedShape(linbot));
 			
-			AffineTransform atbot = AffineTransform.getRotateInstance(Math.toRadians(90), xMidFrame,yMidFrame);
-			g2.draw(atbot.createTransformedShape(linbot));
-			
-			//
 			g2.setColor(colors[3]);
-			Line2D linleft = new Line2D.Float(xMidFrame-strokeval-100,yMidFrame,xMidFrame-strokeval,yMidFrame);
-			
-			AffineTransform atleft = AffineTransform.getRotateInstance(Math.toRadians(90),xMidFrame,yMidFrame);
-			g2.draw(atleft.createTransformedShape(linleft));
+			g2.draw(at90.createTransformedShape(linleft));
 			
 			
 		}else if (state == 3) {
 	        g2.setColor(colors[0]);
-			Line2D lintop = new Line2D.Float(xMidFrame,yMidFrame-strokeval-100,xMidFrame,yMidFrame-strokeval);
+			g2.draw(at135.createTransformedShape(lintop));
 			
-			AffineTransform attop = AffineTransform.getRotateInstance(Math.toRadians(135), xMidFrame,yMidFrame);
-			g2.draw(attop.createTransformedShape(lintop));
-			
-			//
 			g2.setColor(colors[1]);
-			Line2D linright = new Line2D.Float(xMidFrame+strokeval,yMidFrame,xMidFrame+100+strokeval,yMidFrame);
+			g2.draw(at135.createTransformedShape(linright));
 			
-			AffineTransform atright = AffineTransform.getRotateInstance(Math.toRadians(135), xMidFrame,yMidFrame);
-			g2.draw(atright.createTransformedShape(linright));
-			
-			//
 			g2.setColor(colors[2]);
-			Line2D linbot = new Line2D.Float(xMidFrame,yMidFrame+strokeval,xMidFrame,yMidFrame+strokeval+100);
+			g2.draw(at135.createTransformedShape(linbot));
 			
-			AffineTransform atbot = AffineTransform.getRotateInstance(Math.toRadians(135), xMidFrame,yMidFrame);
-			g2.draw(atbot.createTransformedShape(linbot));
-			
-			//
 			g2.setColor(colors[3]);
-			Line2D linleft = new Line2D.Float(xMidFrame-strokeval-100,yMidFrame,xMidFrame-strokeval,yMidFrame);
-			
-			AffineTransform atleft = AffineTransform.getRotateInstance(Math.toRadians(135),xMidFrame,yMidFrame);
-			g2.draw(atleft.createTransformedShape(linleft));
+			g2.draw(at135.createTransformedShape(linleft));
 			
 			
 		}else if (state == 4) {
 			
 	        g2.setColor(colors[0]);
-			Line2D lintop = new Line2D.Float(xMidFrame,yMidFrame-strokeval-100,xMidFrame,yMidFrame-strokeval);
+			g2.draw(at180.createTransformedShape(lintop));
 			
-			AffineTransform attop = AffineTransform.getRotateInstance(Math.toRadians(180), xMidFrame,yMidFrame);
-			g2.draw(attop.createTransformedShape(lintop));
-			
-			//
 			g2.setColor(colors[1]);
-			Line2D linright = new Line2D.Float(xMidFrame+strokeval,yMidFrame,xMidFrame+100+strokeval,yMidFrame);
+			g2.draw(at180.createTransformedShape(linright));
 			
-			AffineTransform atright = AffineTransform.getRotateInstance(Math.toRadians(180), xMidFrame,yMidFrame);
-			g2.draw(atright.createTransformedShape(linright));
-			
-			//
 			g2.setColor(colors[2]);
-			Line2D linbot = new Line2D.Float(xMidFrame,yMidFrame+strokeval,xMidFrame,yMidFrame+strokeval+100);
+			g2.draw(at180.createTransformedShape(linbot));
 			
-			AffineTransform atbot = AffineTransform.getRotateInstance(Math.toRadians(180), xMidFrame,yMidFrame);
-			g2.draw(atbot.createTransformedShape(linbot));
-			
-			//
 			g2.setColor(colors[3]);
-			Line2D linleft = new Line2D.Float(xMidFrame-strokeval-100,yMidFrame,xMidFrame-strokeval,yMidFrame);
-			
-			AffineTransform atleft = AffineTransform.getRotateInstance(Math.toRadians(180),xMidFrame,yMidFrame);
-			g2.draw(atleft.createTransformedShape(linleft));
-			
+			g2.draw(at180.createTransformedShape(linleft));
 			
 			
 		}else if (state == 5) {
 	        g2.setColor(colors[0]);
-			Line2D lintop = new Line2D.Float(xMidFrame,yMidFrame-strokeval-100,xMidFrame,yMidFrame-strokeval);
+			g2.draw(at225.createTransformedShape(lintop));
 			
-			AffineTransform attop = AffineTransform.getRotateInstance(Math.toRadians(225), xMidFrame,yMidFrame);
-			g2.draw(attop.createTransformedShape(lintop));
-			
-			//
 			g2.setColor(colors[1]);
-			Line2D linright = new Line2D.Float(xMidFrame+strokeval,yMidFrame,xMidFrame+100+strokeval,yMidFrame);
+			g2.draw(at225.createTransformedShape(linright));
 			
-			AffineTransform atright = AffineTransform.getRotateInstance(Math.toRadians(225), xMidFrame,yMidFrame);
-			g2.draw(atright.createTransformedShape(linright));
-			
-			//
 			g2.setColor(colors[2]);
-			Line2D linbot = new Line2D.Float(xMidFrame,yMidFrame+strokeval,xMidFrame,yMidFrame+strokeval+100);
+			g2.draw(at225.createTransformedShape(linbot));
 			
-			AffineTransform atbot = AffineTransform.getRotateInstance(Math.toRadians(225), xMidFrame,yMidFrame);
-			g2.draw(atbot.createTransformedShape(linbot));
-			
-			//
 			g2.setColor(colors[3]);
-			Line2D linleft = new Line2D.Float(xMidFrame-strokeval-100,yMidFrame,xMidFrame-strokeval,yMidFrame);
-			
-			AffineTransform atleft = AffineTransform.getRotateInstance(Math.toRadians(225),xMidFrame,yMidFrame);
-			g2.draw(atleft.createTransformedShape(linleft));
-			
+			g2.draw(at225.createTransformedShape(linleft));
 			
 		}else if (state == 6) {
 	        g2.setColor(colors[0]);
-			Line2D lintop = new Line2D.Float(xMidFrame,yMidFrame-strokeval-100,xMidFrame,yMidFrame-strokeval);
+			g2.draw(at270.createTransformedShape(lintop));
 			
-			AffineTransform attop = AffineTransform.getRotateInstance(Math.toRadians(270), xMidFrame,yMidFrame);
-			g2.draw(attop.createTransformedShape(lintop));
-			
-			//
 			g2.setColor(colors[1]);
-			Line2D linright = new Line2D.Float(xMidFrame+strokeval,yMidFrame,xMidFrame+100+strokeval,yMidFrame);
+			g2.draw(at270.createTransformedShape(linright));
 			
-			AffineTransform atright = AffineTransform.getRotateInstance(Math.toRadians(270), xMidFrame,yMidFrame);
-			g2.draw(atright.createTransformedShape(linright));
-			
-			//
 			g2.setColor(colors[2]);
-			Line2D linbot = new Line2D.Float(xMidFrame,yMidFrame+strokeval,xMidFrame,yMidFrame+strokeval+100);
+			g2.draw(at270.createTransformedShape(linbot));
 			
-			AffineTransform atbot = AffineTransform.getRotateInstance(Math.toRadians(270), xMidFrame,yMidFrame);
-			g2.draw(atbot.createTransformedShape(linbot));
-			
-			//
 			g2.setColor(colors[3]);
-			Line2D linleft = new Line2D.Float(xMidFrame-strokeval-100,yMidFrame,xMidFrame-strokeval,yMidFrame);
-			
-			AffineTransform atleft = AffineTransform.getRotateInstance(Math.toRadians(270),xMidFrame,yMidFrame);
-			g2.draw(atleft.createTransformedShape(linleft));
+			g2.draw(at270.createTransformedShape(linleft));
 			
 		}else if (state == 7) {
 	        g2.setColor(colors[0]);
-			Line2D lintop = new Line2D.Float(xMidFrame,yMidFrame-strokeval-100,xMidFrame,yMidFrame-strokeval);
+			g2.draw(at315.createTransformedShape(lintop));
 			
-			AffineTransform attop = AffineTransform.getRotateInstance(Math.toRadians(315), xMidFrame,yMidFrame);
-			g2.draw(attop.createTransformedShape(lintop));
-			
-			//
 			g2.setColor(colors[1]);
-			Line2D linright = new Line2D.Float(xMidFrame+strokeval,yMidFrame,xMidFrame+100+strokeval,yMidFrame);
+			g2.draw(at315.createTransformedShape(linright));
 			
-			AffineTransform atright = AffineTransform.getRotateInstance(Math.toRadians(315), xMidFrame,yMidFrame);
-			g2.draw(atright.createTransformedShape(linright));
-			
-			//
 			g2.setColor(colors[2]);
-			Line2D linbot = new Line2D.Float(xMidFrame,yMidFrame+strokeval,xMidFrame,yMidFrame+strokeval+100);
+			g2.draw(at315.createTransformedShape(linbot));
 			
-			AffineTransform atbot = AffineTransform.getRotateInstance(Math.toRadians(315), xMidFrame,yMidFrame);
-			g2.draw(atbot.createTransformedShape(linbot));
-			
-			//
 			g2.setColor(colors[3]);
-			Line2D linleft = new Line2D.Float(xMidFrame-strokeval-100,yMidFrame,xMidFrame-strokeval,yMidFrame);
-			
-			AffineTransform atleft = AffineTransform.getRotateInstance(Math.toRadians(315),xMidFrame,yMidFrame);
-			g2.draw(atleft.createTransformedShape(linleft));
-			
+			g2.draw(at315.createTransformedShape(linleft));
 			
 		}
 	}
