@@ -16,6 +16,11 @@ import javax.swing.WindowConstants;
 
 public class obsrectangle extends JPanel implements ActionListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private static final int MAX_STATE = 8;
 	
 	public static final Color colors[] = {new Color(50, 226, 241),

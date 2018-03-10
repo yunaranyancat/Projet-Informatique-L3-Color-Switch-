@@ -16,6 +16,11 @@ import javax.swing.WindowConstants;
 
 public class obscross extends JPanel implements ActionListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private static final int MAX_STATE = 8;
 	
 	public static final Color colors[] = {new Color(50, 226, 241),
@@ -31,6 +36,7 @@ public class obscross extends JPanel implements ActionListener {
 	
 	public obscross() {
 		//start the timer
+		setBackground(Color.BLACK);
 		Timer t = new Timer(300,this);
 		t.start();
 		
