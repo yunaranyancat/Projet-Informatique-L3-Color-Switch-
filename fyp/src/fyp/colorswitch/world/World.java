@@ -13,6 +13,8 @@ import fyp.colorswitch.entity.obstacle.Bar;
 import fyp.colorswitch.entity.obstacle.Circle;
 import fyp.colorswitch.entity.obstacle.Cross;
 import fyp.colorswitch.entity.obstacle.Rectangle;
+import fyp.colorswitch.entity.obstacle.obscross;
+import fyp.colorswitch.entity.obstacle.obsrectangle;
 import fyp.colorswitch.state.State;
 import fyp.colorswitch.utils.Util;
 
@@ -34,11 +36,13 @@ public class World {
 		
 		// add entities
 		em.addEntity(new Circle(handler, midHeight, 200, 3));
-		em.addEntity(new Circle(handler, midHeight, 100, 2));
+		//em.addEntity(new Circle(handler, midHeight, 100, 2));
 		//em.addEntity(new Rectangle(handler, 300));
 		//em.addEntity(new Cross(handler, 350));
 		//em.addEntity(new Bar(handler, 300));
-		// test 
+		// test
+		//em.addEntity(new obscross(handler, 200));
+		//em.addEntity(new obsrectangle(handler,200));
 		//em.addEntity(new ScoreStar(handler, midHeight - 100, 10, 20));
 		switcher = new Switcher(handler, midHeight);
 		em.addEntity(switcher);
