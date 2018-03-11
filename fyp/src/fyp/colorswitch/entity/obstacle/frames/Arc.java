@@ -52,6 +52,14 @@ public class Arc extends Arc2D {
 	
 	
 	// Getters and Setters
+
+	public Arc2D getArc() {
+		return arc;
+	}
+	
+	public void setArc(Arc2D arc) {
+		this.arc = arc;
+	}
 	
 	public int getColorType() {
 		return colorType;

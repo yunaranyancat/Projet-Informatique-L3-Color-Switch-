@@ -68,16 +68,18 @@ public class Circle extends Obstacle {
 
 	@Override
 	public boolean collidesWith(Ellipse2D.Double body, int color) {
-		for (int i = 0; i < 4; i++) {
-			Arc currentArc = lesArc.get(i);
-            Area playerArea = new Area(body);
-            Area arcArea = new Area(currentArc);
-            arcArea.subtract(new Area(new Ellipse2D.Double(x + thickness / 2, yPosition + thickness / 2, diameter - thickness, diameter - thickness)));
-            playerArea.intersect(arcArea);
-            if (!playerArea.isEmpty() && currentArc.getColorType() != color) {
-            	//System.out.println("there's a collision");
-                return true;
-            } 	
+		
+		for (int i = 0; i < lesArc.size(); i++) {
+		Area playerArea = new Area(body);
+	        Area arcArea = new Area(lesArc.get(i).getArc());
+	        
+	        playerArea.intersect(arcArea); 
+	        if (!playerArea.isEmpty()) {
+	        	if(color != lesArc.get(i).getColorType())
+	        		return true;
+	        }
+	        else 
+	        	continue;
 		}
 		
 		return false;
