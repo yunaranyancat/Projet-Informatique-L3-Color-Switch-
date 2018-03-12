@@ -21,34 +21,41 @@ public class obsrectangle extends Obstacle {
 	
 	private static final int MAX_STATE = 8;
 	
-	private float xval,yval,strokeval,xsizeFrame,ysizeFrame,xMidFrame,yMidFrame;
+	private int strokeval = 20;
+	private float xsizeFrame = 500;
+	private float ysizeFrame = 700;
+	private float xMidFrame = xsizeFrame/2;
+	private float yMidFrame = handler.getGameCamera().getyOffset();
 	
 	public static final Color colors[] = {new Color(50, 226, 241),
 	        new Color(244, 222, 14), new Color(140, 18, 251), new Color(255, 0, 128)};
 
 	private int state;
+	
+//	private int angle;
+//	
+//	public int getangle() {
+//		return this.angle;
+//	}
+//	
+//	public int setAngle(int angle) {
+//		return this.angle = angle;
+//	}
 
 	public obsrectangle(Handler handler, float yPosition) {
 		super(handler, yPosition);
 		// TODO Auto-generated constructor stub
-		xval = 0;
-		yval = 0;
-		strokeval = 20;
-		xsizeFrame = 450;
-		ysizeFrame = 450;
-		xMidFrame = xsizeFrame/2;
-		yMidFrame = ysizeFrame/2;
+
 	}
-
-
 	
-	AffineTransform at45 = AffineTransform.getRotateInstance(Math.toRadians(45),xMidFrame,yMidFrame);
-	AffineTransform at90 = AffineTransform.getRotateInstance(Math.toRadians(90),xMidFrame,yMidFrame);
-	AffineTransform at135 = AffineTransform.getRotateInstance(Math.toRadians(135),xMidFrame,yMidFrame);
-	AffineTransform at180 = AffineTransform.getRotateInstance(Math.toRadians(180),xMidFrame,yMidFrame);
-	AffineTransform at225 = AffineTransform.getRotateInstance(Math.toRadians(225),xMidFrame,yMidFrame);
-	AffineTransform at270 = AffineTransform.getRotateInstance(Math.toRadians(270),xMidFrame,yMidFrame);
-	AffineTransform at315 = AffineTransform.getRotateInstance(Math.toRadians(315),xMidFrame,yMidFrame);
+	
+	AffineTransform at45 = AffineTransform.getRotateInstance(Math.toRadians(45),xMidFrame,yPosition - yMidFrame);
+	AffineTransform at90 = AffineTransform.getRotateInstance(Math.toRadians(90),xMidFrame,yPosition - yMidFrame);
+	AffineTransform at135 = AffineTransform.getRotateInstance(Math.toRadians(135),xMidFrame,yPosition - yMidFrame);
+	AffineTransform at180 = AffineTransform.getRotateInstance(Math.toRadians(180),xMidFrame,yPosition - yMidFrame);
+	AffineTransform at225 = AffineTransform.getRotateInstance(Math.toRadians(225),xMidFrame,yPosition - yMidFrame);
+	AffineTransform at270 = AffineTransform.getRotateInstance(Math.toRadians(270),xMidFrame,yPosition - yMidFrame);
+	AffineTransform at315 = AffineTransform.getRotateInstance(Math.toRadians(315),xMidFrame,yPosition - yMidFrame);
 	
 	//public obsrectangle() {
 		//start the timer to provide state change and repaint
@@ -74,28 +81,52 @@ public class obsrectangle extends Obstacle {
 	//	repaint();
 		
 	//}
-	
 
+	
 	@Override
 	public void tick() {
-		// TODO Auto-generated method stub
+		 //TODO Auto-generated method stub
 		state++;
 		if (state == MAX_STATE) {
-		state = 0;
-		}
-		
+				state = 0;
+			}
 	}
 
 	@Override
 	public void render(Graphics2D g) {
 		// TODO Auto-generated method stub
+		rotaterectangle(g);
+	}
+	
+	public void rotaterectangle(Graphics2D g) {
 		Graphics2D g2 = (Graphics2D) g;
         g2.setStroke(new BasicStroke(strokeval));
+        
+        yMidFrame = yPosition - handler.getGameCamera().getyOffset();
         
         Line2D linleft = new Line2D.Float(xMidFrame-50-strokeval,yMidFrame-50,xMidFrame-50-strokeval,yMidFrame+50);
         Line2D lintop = new Line2D.Float(xMidFrame-50,yMidFrame-50-strokeval,xMidFrame+50,yMidFrame-50-strokeval);
         Line2D linright = new Line2D.Float(xMidFrame+50+strokeval,yMidFrame-50,xMidFrame+50+strokeval,yMidFrame+50);
         Line2D linbot = new Line2D.Float(xMidFrame-50,yMidFrame+50+strokeval,xMidFrame+50,yMidFrame+50+strokeval);
+        
+//		for (int i = 0; i<360; i+=45) {
+//			AffineTransform at = AffineTransform.getRotateInstance(Math.toRadians(i),xMidFrame,yMidFrame);
+//			
+//			setAngle(i);
+//			
+//			g2.setColor(colors[0]);
+//			g2.draw(at.createTransformedShape(lintop));
+//			
+//			g2.setColor(colors[1]);
+//			g2.draw(at.createTransformedShape(linright));
+//			
+//			g2.setColor(colors[2]);
+//			g2.draw(at.createTransformedShape(linbot));
+//			
+//			g2.setColor(colors[3]);
+//			g2.draw(at.createTransformedShape(linleft));
+//		}
+		
 
         
 		if (state == 0) {
@@ -206,6 +237,7 @@ public class obsrectangle extends Obstacle {
         g2.draw(at315.createTransformedShape(linbot));
 			
 		}
+		
 		
 		
 	}

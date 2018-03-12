@@ -21,19 +21,18 @@ public class obscross extends Obstacle {
 
 	private float strokeval,xsizeFrame,ysizeFrame,xMidFrame,yMidFrame;
 
-	private static final int MAX_STATE = 8;
+	//private static final int MAX_STATE = 8;
 	
 	public static final Color colors[] = {new Color(50, 226, 241),
 	        new Color(244, 222, 14), new Color(140, 18, 251), new Color(255, 0, 128)};
 	
-	private int state;
 	
 	public obscross(Handler handler, float yPosition) {
 		super(handler, yPosition);
 		// TODO Auto-generated constructor stub
 		strokeval = 20;
-		xsizeFrame = 450;
-		ysizeFrame = 450;
+		xsizeFrame = 500;
+		ysizeFrame = 700;
 		xMidFrame = xsizeFrame/2;
 		yMidFrame = ysizeFrame/2;
 	}
@@ -70,10 +69,10 @@ public class obscross extends Obstacle {
 
 	@Override
 	public void tick() {
-		state++;
-		if (state == MAX_STATE) {
-			state = 0;
-		}
+//		state++;
+//		if (state == MAX_STATE) {
+//			state = 0;
+//		}
 	}
 
 	@Override
@@ -87,120 +86,121 @@ public class obscross extends Obstacle {
 		Line2D linbot = new Line2D.Float(xMidFrame,yMidFrame+strokeval,xMidFrame,yMidFrame+strokeval+100);
 		Line2D linleft = new Line2D.Float(xMidFrame-strokeval-100,yMidFrame,xMidFrame-strokeval,yMidFrame);
 		
-		if (state == 0) {
-			
-	        g2.setColor(colors[0]);
-			g2.draw(lintop);
-			
-			g2.setColor(colors[1]);
-			g2.draw(linright);
-			
-			g2.setColor(colors[2]);
-			g2.draw(linbot);
-			
-			g2.setColor(colors[3]);
-			g2.draw(linleft);
-			
-			
-		}else if(state == 1) {
-	        g2.setColor(colors[0]);
-			g2.draw(at45.createTransformedShape(lintop));
-			
-			g2.setColor(colors[1]);
-			g2.draw(at45.createTransformedShape(linright));
-			
-			g2.setColor(colors[2]);
-			g2.draw(at45.createTransformedShape(linbot));
-			
-			g2.setColor(colors[3]);
-			g2.draw(at45.createTransformedShape(linleft));
-			
-			
-			
-		}else if (state == 2) {
 
-	        g2.setColor(colors[0]);
-			g2.draw(at90.createTransformedShape(lintop));
-			
-			g2.setColor(colors[1]);
-			g2.draw(at90.createTransformedShape(linright));
-			
-			g2.setColor(colors[2]);
-			g2.draw(at90.createTransformedShape(linbot));
-			
-			g2.setColor(colors[3]);
-			g2.draw(at90.createTransformedShape(linleft));
-			
-			
-		}else if (state == 3) {
-	        g2.setColor(colors[0]);
-			g2.draw(at135.createTransformedShape(lintop));
-			
-			g2.setColor(colors[1]);
-			g2.draw(at135.createTransformedShape(linright));
-			
-			g2.setColor(colors[2]);
-			g2.draw(at135.createTransformedShape(linbot));
-			
-			g2.setColor(colors[3]);
-			g2.draw(at135.createTransformedShape(linleft));
-			
-			
-		}else if (state == 4) {
-			
-	        g2.setColor(colors[0]);
-			g2.draw(at180.createTransformedShape(lintop));
-			
-			g2.setColor(colors[1]);
-			g2.draw(at180.createTransformedShape(linright));
-			
-			g2.setColor(colors[2]);
-			g2.draw(at180.createTransformedShape(linbot));
-			
-			g2.setColor(colors[3]);
-			g2.draw(at180.createTransformedShape(linleft));
-			
-			
-		}else if (state == 5) {
-	        g2.setColor(colors[0]);
-			g2.draw(at225.createTransformedShape(lintop));
-			
-			g2.setColor(colors[1]);
-			g2.draw(at225.createTransformedShape(linright));
-			
-			g2.setColor(colors[2]);
-			g2.draw(at225.createTransformedShape(linbot));
-			
-			g2.setColor(colors[3]);
-			g2.draw(at225.createTransformedShape(linleft));
-			
-		}else if (state == 6) {
-	        g2.setColor(colors[0]);
-			g2.draw(at270.createTransformedShape(lintop));
-			
-			g2.setColor(colors[1]);
-			g2.draw(at270.createTransformedShape(linright));
-			
-			g2.setColor(colors[2]);
-			g2.draw(at270.createTransformedShape(linbot));
-			
-			g2.setColor(colors[3]);
-			g2.draw(at270.createTransformedShape(linleft));
-			
-		}else if (state == 7) {
-	        g2.setColor(colors[0]);
-			g2.draw(at315.createTransformedShape(lintop));
-			
-			g2.setColor(colors[1]);
-			g2.draw(at315.createTransformedShape(linright));
-			
-			g2.setColor(colors[2]);
-			g2.draw(at315.createTransformedShape(linbot));
-			
-			g2.setColor(colors[3]);
-			g2.draw(at315.createTransformedShape(linleft));
-			
-		}
+//		if (state == 0) {
+//			
+//	        g2.setColor(colors[0]);
+//			g2.draw(lintop);
+//			
+//			g2.setColor(colors[1]);
+//			g2.draw(linright);
+//			
+//			g2.setColor(colors[2]);
+//			g2.draw(linbot);
+//			
+//			g2.setColor(colors[3]);
+//			g2.draw(linleft);
+//			
+//			
+//		}else if(state == 1) {
+//	        g2.setColor(colors[0]);
+//			g2.draw(at45.createTransformedShape(lintop));
+//			
+//			g2.setColor(colors[1]);
+//			g2.draw(at45.createTransformedShape(linright));
+//			
+//			g2.setColor(colors[2]);
+//			g2.draw(at45.createTransformedShape(linbot));
+//			
+//			g2.setColor(colors[3]);
+//			g2.draw(at45.createTransformedShape(linleft));
+//			
+//			
+//			
+//		}else if (state == 2) {
+//
+//	        g2.setColor(colors[0]);
+//			g2.draw(at90.createTransformedShape(lintop));
+//			
+//			g2.setColor(colors[1]);
+//			g2.draw(at90.createTransformedShape(linright));
+//			
+//			g2.setColor(colors[2]);
+//			g2.draw(at90.createTransformedShape(linbot));
+//			
+//			g2.setColor(colors[3]);
+//			g2.draw(at90.createTransformedShape(linleft));
+//			
+//			
+//		}else if (state == 3) {
+//	        g2.setColor(colors[0]);
+//			g2.draw(at135.createTransformedShape(lintop));
+//			
+//			g2.setColor(colors[1]);
+//			g2.draw(at135.createTransformedShape(linright));
+//			
+//			g2.setColor(colors[2]);
+//			g2.draw(at135.createTransformedShape(linbot));
+//			
+//			g2.setColor(colors[3]);
+//			g2.draw(at135.createTransformedShape(linleft));
+//			
+//			
+//		}else if (state == 4) {
+//			
+//	        g2.setColor(colors[0]);
+//			g2.draw(at180.createTransformedShape(lintop));
+//			
+//			g2.setColor(colors[1]);
+//			g2.draw(at180.createTransformedShape(linright));
+//			
+//			g2.setColor(colors[2]);
+//			g2.draw(at180.createTransformedShape(linbot));
+//			
+//			g2.setColor(colors[3]);
+//			g2.draw(at180.createTransformedShape(linleft));
+//			
+//			
+//		}else if (state == 5) {
+//	        g2.setColor(colors[0]);
+//			g2.draw(at225.createTransformedShape(lintop));
+//			
+//			g2.setColor(colors[1]);
+//			g2.draw(at225.createTransformedShape(linright));
+//			
+//			g2.setColor(colors[2]);
+//			g2.draw(at225.createTransformedShape(linbot));
+//			
+//			g2.setColor(colors[3]);
+//			g2.draw(at225.createTransformedShape(linleft));
+//			
+//		}else if (state == 6) {
+//	        g2.setColor(colors[0]);
+//			g2.draw(at270.createTransformedShape(lintop));
+//			
+//			g2.setColor(colors[1]);
+//			g2.draw(at270.createTransformedShape(linright));
+//			
+//			g2.setColor(colors[2]);
+//			g2.draw(at270.createTransformedShape(linbot));
+//			
+//			g2.setColor(colors[3]);
+//			g2.draw(at270.createTransformedShape(linleft));
+//			
+//		}else if (state == 7) {
+//	        g2.setColor(colors[0]);
+//			g2.draw(at315.createTransformedShape(lintop));
+//			
+//			g2.setColor(colors[1]);
+//			g2.draw(at315.createTransformedShape(linright));
+//			
+//			g2.setColor(colors[2]);
+//			g2.draw(at315.createTransformedShape(linbot));
+//			
+//			g2.setColor(colors[3]);
+//			g2.draw(at315.createTransformedShape(linleft));
+//			
+//		}
 		
 	}
 

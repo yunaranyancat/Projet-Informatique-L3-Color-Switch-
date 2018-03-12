@@ -42,7 +42,7 @@ public class World {
 		//em.addEntity(new Bar(handler, 300));
 		// test
 		//em.addEntity(new obscross(handler, 200));
-		em.addEntity(new obsrectangle(handler,400));
+		em.addEntity(new obsrectangle(handler,200));
 		//em.addEntity(new ScoreStar(handler, midHeight - 100, 10, 20));
 		switcher = new Switcher(handler, midHeight);
 		em.addEntity(switcher);
