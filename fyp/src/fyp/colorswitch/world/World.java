@@ -35,14 +35,14 @@ public class World {
 		em = new EntityManager(handler);
 		
 		// add entities
-		em.addEntity(new Circle(handler, midHeight, 200, 3));
+		//em.addEntity(new Circle(handler, midHeight, 200, 3));
 		//em.addEntity(new Circle(handler, midHeight, 100, 2));
 		//em.addEntity(new Rectangle(handler, 300));
 		//em.addEntity(new Cross(handler, 350));
 		//em.addEntity(new Bar(handler, 300));
 		// test
-		//em.addEntity(new obscross(handler, 200));
-		em.addEntity(new obsrectangle(handler,200));
+		em.addEntity(new obscross(handler, 200));
+		//em.addEntity(new obsrectangle(handler,200));
 		//em.addEntity(new ScoreStar(handler, midHeight - 100, 10, 20));
 		switcher = new Switcher(handler, midHeight);
 		em.addEntity(switcher);
@@ -52,6 +52,7 @@ public class World {
 		em.addEntity(player);
 	}
 	
+	
 	public EntityManager getEntityManager() {
 		return this.em;
 	}
@@ -60,12 +61,14 @@ public class World {
 		int timer = 0;
 		em.tick();	
 		if(isGameOver()) {
-			//State.setState(handler.getGame().menuState);
+			State.setState(handler.getGame().menuState);
 		}	
 		if(checkCollisions())
 			System.out.println("there's a collision");
-		if(player.getyPosition()%200 == 0)
-			randomSpawn();
+		if(player.getyPosition() < em.getEntities().get(em.getEntities().size()-1).getyPosition()+200) 
+		{
+			//randomSpawn();}
+		}
 		System.out.println(player.getyPosition());
 	}
 	
@@ -75,7 +78,7 @@ public class World {
 	
 	public boolean isGameOver() {
 		// to add : bodycollisions with colors
-		if(player.getyPosition() >= 680)
+		if(player.getyPosition() >= 680 || checkCollisions())
 			return true;
 		else 
 			return false;
@@ -96,8 +99,10 @@ public class World {
 					player.setColor(player.randomInt());
 					em.getEntities().remove(switcher);
 					switcher = null;
-					return true;
+					return false;
 				}
+				
+				return true;
 					
 			}	
 			else
@@ -108,13 +113,25 @@ public class World {
 	}
 	
 	public void randomSpawn() {
-		int distanceBetweenObstacle = 200;
-		int spawnHeight = (int) (distanceBetweenObstacle + player.getyPosition());
-		int x = 0;
-		x = handler.getGame().randomInt();
+		int distanceBetweenObstacle = 300;
+		int spawnHeight = (int) (em.getEntities().get(em.getEntities().size()-1).getyPosition() - distanceBetweenObstacle);
+		Random rand = new Random();
+		int x = rand.nextInt(3);
+		
 		switch(x) {
-			case 0 : em.addEntity(new Circle(handler, spawnHeight, 200, 3));
-			case 1 : em.addEntity(new Bar(handler, spawnHeight));
+			case 0 : 
+				em.addEntity(new Circle(handler, spawnHeight, 200, 3));
+				//randomSpawn();
+				break;
+			case 1 : 
+				em.addEntity(new Bar(handler, spawnHeight));
+				//randomSpawn();
+				break;
+			case 2 : 
+				em.addEntity(new Switcher(handler,spawnHeight));
+				//randomSpawn();
+				break;
+			//case 3 : em.addEntity(new obsrectangle(handler,spawnHeight));
 		}
 	}
 	
