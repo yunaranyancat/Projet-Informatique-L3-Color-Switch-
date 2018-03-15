@@ -6,13 +6,15 @@ import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
+import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
 import java.awt.geom.Ellipse2D.Double;
 
 import fyp.colorswitch.Handler;
 import fyp.colorswitch.entity.Entity;
 import fyp.colorswitch.entity.obstacle.Obstacle;
 
-public class Line extends Obstacle{
+public class Line extends Line2D{
 	
 	private int color;
 	private float xStart, xEnd, yStart, yEnd;
@@ -23,8 +25,12 @@ public class Line extends Obstacle{
 	
 	private Line2D line;
 	
+	private Handler handler;
+	private float yPosition;
+	
 	public Line(Handler handler, float yPosition, float xStart, float yStart, float xEnd, float yEnd, int color) {
-		super(handler, yPosition);
+		this.handler = handler;
+		this.yPosition = yPosition;
 		this.xStart = xStart;
 		this.yStart = yStart;
 		this.xEnd = xEnd;
@@ -109,10 +115,58 @@ public void rotateLine(Graphics2D g) {
 	}
 
 
-	@Override
+	//@Override
 	public boolean collidesWith(Ellipse2D.Double body, int bodycolor) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public Rectangle2D getBounds2D() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Point2D getP1() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Point2D getP2() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double getX1() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getX2() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getY1() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getY2() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setLine(double x1, double y1, double x2, double y2) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
