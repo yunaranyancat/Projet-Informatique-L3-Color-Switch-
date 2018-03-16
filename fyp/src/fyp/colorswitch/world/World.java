@@ -41,8 +41,8 @@ public class World {
 		//em.addEntity(new Cross(handler, 350));
 		//em.addEntity(new Bar(handler, 300));
 		// test
-		em.addEntity(new obscross(handler, 200));
-		//em.addEntity(new obsrectangle(handler,200));
+		//em.addEntity(new obscross(handler, 200));
+		em.addEntity(new obsrectangle(handler,200));
 		//em.addEntity(new ScoreStar(handler, midHeight - 100, 10, 20));
 		switcher = new Switcher(handler, midHeight);
 		em.addEntity(switcher);
@@ -61,13 +61,13 @@ public class World {
 		int timer = 0;
 		em.tick();	
 		if(isGameOver()) {
-			State.setState(handler.getGame().menuState);
+			//State.setState(handler.getGame().menuState);
 		}	
 		if(checkCollisions())
 			System.out.println("there's a collision");
 		if(player.getyPosition() < em.getEntities().get(em.getEntities().size()-1).getyPosition()+200) 
 		{
-			//randomSpawn();}
+			//randomSpawn();
 		}
 		System.out.println(player.getyPosition());
 	}
@@ -116,11 +116,13 @@ public class World {
 		int distanceBetweenObstacle = 300;
 		int spawnHeight = (int) (em.getEntities().get(em.getEntities().size()-1).getyPosition() - distanceBetweenObstacle);
 		Random rand = new Random();
-		int x = rand.nextInt(3);
+		int x = rand.nextInt(4);
+		
+		int y = rand.nextInt(5)+1;
 		
 		switch(x) {
 			case 0 : 
-				em.addEntity(new Circle(handler, spawnHeight, 200, 3));
+				em.addEntity(new Circle(handler, spawnHeight, 200, y));
 				//randomSpawn();
 				break;
 			case 1 : 
@@ -128,10 +130,11 @@ public class World {
 				//randomSpawn();
 				break;
 			case 2 : 
-				em.addEntity(new Switcher(handler,spawnHeight));
+				//em.addEntity(new Switcher(handler,spawnHeight));
 				//randomSpawn();
 				break;
-			//case 3 : em.addEntity(new obsrectangle(handler,spawnHeight));
+			case 3 : 
+				em.addEntity(new obsrectangle(handler,spawnHeight));
 		}
 	}
 	
