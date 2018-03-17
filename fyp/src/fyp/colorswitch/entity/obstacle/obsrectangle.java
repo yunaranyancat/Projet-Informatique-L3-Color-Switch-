@@ -38,6 +38,7 @@ public class obsrectangle extends Obstacle {
 	        new Color(244, 222, 14), new Color(140, 18, 251), new Color(255, 0, 128)};
 
 	private int state;
+	private int rangestate=0;
 	
 	public obsrectangle(Handler handler, float yPosition) {
 		super(handler, yPosition);
@@ -119,351 +120,7 @@ public class obsrectangle extends Obstacle {
 	public void rotaterectangle(Graphics2D g) {
 	Graphics2D g2 = (Graphics2D) g;
     g2.setStroke(new BasicStroke(strokeval));
-            
-//    Line2D linleft = new Line2D.Float(xMidFrame-50-strokeval,yMidFrame-50-handler.getGameCamera().getyOffset(),xMidFrame-50-strokeval,yMidFrame+50-handler.getGameCamera().getyOffset());
-//    Line2D lintop = new Line2D.Float(xMidFrame-50,yMidFrame-50-strokeval-handler.getGameCamera().getyOffset(),xMidFrame+50,yMidFrame-50-strokeval-handler.getGameCamera().getyOffset());
-//    Line2D linright = new Line2D.Float(xMidFrame+50+strokeval,yMidFrame-50-handler.getGameCamera().getyOffset(),xMidFrame+50+strokeval,yMidFrame+50-handler.getGameCamera().getyOffset());
-//    Line2D linbot = new Line2D.Float(xMidFrame-50,yMidFrame+50+strokeval-handler.getGameCamera().getyOffset(),xMidFrame+50,yMidFrame+50+strokeval-handler.getGameCamera().getyOffset());
-//    
 
-//    	if (state>=0 && state<15) {
-//			
-//	        g2.setColor(colors[0]);
-//			g2.draw(lintop);
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(linright);
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(linbot);
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(linleft);
-//			
-//			
-//		}else if(state >= 15 && state<30) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at15.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at15.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at15.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at15.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 30 && state<45) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at30.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at30.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at30.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at30.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 45 && state<60) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at45.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at45.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at45.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at45.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 60 && state<75) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at60.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at60.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at60.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at60.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 75 && state<90) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at75.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at75.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at75.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at75.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 90 && state<105) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at90.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at90.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at90.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at90.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 105 && state<120) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at105.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at105.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at105.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at105.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 120 && state<135) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at120.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at120.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at120.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at120.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 135 && state<150) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at135.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at135.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at135.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at135.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 150 && state<165) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at150.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at150.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at150.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at150.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 165 && state<180) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at165.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at165.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at165.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at165.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 180 && state<195) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at180.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at180.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at180.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at180.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 195 && state<210) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at195.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at195.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at195.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at195.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 210 && state<225) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at210.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at210.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at210.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at210.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 225 && state<240) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at225.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at225.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at225.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at225.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 240 && state<255) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at240.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at240.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at240.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at240.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 255 && state<270) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at255.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at255.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at255.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at255.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 270 && state<285) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at270.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at270.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at270.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at270.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 285 && state<300) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at285.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at285.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at285.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at285.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 300 && state<315) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at300.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at300.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at300.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at300.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 315 && state<330) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at315.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at315.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at315.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at315.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 330 && state<345) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at330.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at330.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at330.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at330.createTransformedShape(linleft));
-//			
-//			
-//		}else if(state >= 345 && state<360) {
-//	        g2.setColor(colors[0]);
-//			g2.draw(at345.createTransformedShape(lintop));
-//			
-//			g2.setColor(colors[1]);
-//			g2.draw(at345.createTransformedShape(linright));
-//			
-//			g2.setColor(colors[2]);
-//			g2.draw(at345.createTransformedShape(linbot));
-//			
-//			g2.setColor(colors[3]);
-//			g2.draw(at345.createTransformedShape(linleft));
-//			
-//			
-//		}
     linleft.setLine(xMidFrame-50-strokeval,yMidFrame-50-handler.getGameCamera().getyOffset(),xMidFrame-50-strokeval,yMidFrame+50-handler.getGameCamera().getyOffset()); 
     lintop.setLine(xMidFrame-50,yMidFrame-50-strokeval-handler.getGameCamera().getyOffset(),xMidFrame+50,yMidFrame-50-strokeval-handler.getGameCamera().getyOffset());
     linright.setLine(xMidFrame+50+strokeval,yMidFrame-50-handler.getGameCamera().getyOffset(),xMidFrame+50+strokeval,yMidFrame+50-handler.getGameCamera().getyOffset());
@@ -472,7 +129,6 @@ public class obsrectangle extends Obstacle {
     
 	if (state < 100) {
 	g2.setColor(colors[0]);
-    //Line2D lin2 = new Line2D.Float(xMidFrame-50-strokeval,yMidFrame-50,xMidFrame-50-strokeval,yMidFrame+50);
     g2.draw(linleft);
     
     g2.setColor(colors[1]);
@@ -486,6 +142,8 @@ public class obsrectangle extends Obstacle {
     g2.setColor(colors[3]);
     //Line2D lin4 = new Line2D.Float(xMidFrame-50,yMidFrame+50+strokeval,xMidFrame+50,yMidFrame+50+strokeval);
     g2.draw(linbot);
+    
+    rangestate = 0;
 	}else if(state >= 100 && state <200) {
 	g2.setColor(colors[3]);
     //Line2D lin2 = new Line2D.Float(xMidFrame-50-strokeval,yMidFrame-50,xMidFrame-50-strokeval,yMidFrame+50);
@@ -502,6 +160,8 @@ public class obsrectangle extends Obstacle {
     g2.setColor(colors[2]);
     //Line2D lin4 = new Line2D.Float(xMidFrame-50,yMidFrame+50+strokeval,xMidFrame+50,yMidFrame+50+strokeval);
     g2.draw(linbot);
+    
+    rangestate=1;
 	}else if(state >= 200 && state <300) {
 	g2.setColor(colors[2]);
     //Line2D lin2 = new Line2D.Float(xMidFrame-50-strokeval,yMidFrame-50,xMidFrame-50-strokeval,yMidFrame+50);
@@ -518,6 +178,7 @@ public class obsrectangle extends Obstacle {
     g2.setColor(colors[1]);
     //Line2D lin4 = new Line2D.Float(xMidFrame-50,yMidFrame+50+strokeval,xMidFrame+50,yMidFrame+50+strokeval);
     g2.draw(linbot);
+    rangestate=2;
 	}else if (state >= 300 && state <400) {
 	g2.setColor(colors[1]);
     //Line2D lin2 = new Line2D.Float(xMidFrame-50-strokeval,yMidFrame-50,xMidFrame-50-strokeval,yMidFrame+50);
@@ -534,6 +195,7 @@ public class obsrectangle extends Obstacle {
     g2.setColor(colors[0]);
     //Line2D lin4 = new Line2D.Float(xMidFrame-50,yMidFrame+50+strokeval,xMidFrame+50,yMidFrame+50+strokeval);
     g2.draw(linbot);
+    rangestate=3;
 	}
 			
 	}
@@ -542,12 +204,36 @@ public class obsrectangle extends Obstacle {
 	public boolean collidesWith(Double body, int bodycolor) {
 		// TODO Auto-generated method stub
 		
-		if(body.getMinY()==yMidFrame-50-strokeval-handler.getGameCamera().getyOffset()){ //top
-			if(bodycolor==0) {
-			return true;}else {return false;}
-		}
+		boolean collision = false;
+		//bot collision
+		if((yMidFrame+50+strokeval-handler.getGameCamera().getyOffset()+strokeval>=body.getCenterY()) &&  (yMidFrame+50+strokeval-handler.getGameCamera().getyOffset()<=body.getCenterY())){
+			if((rangestate==0) && (bodycolor!=3)) {
+				collision = true;
+			}else if ((rangestate==1) && (bodycolor!=2)) {
+				collision = true;
+			}else if ((rangestate==2) && (bodycolor!=1)) {
+				collision = true;
+			}else if ((rangestate==3) && (bodycolor!=0)) {
+				collision = true;
+			}else collision = false;
+		//top collision
+		}else if((yMidFrame-50-strokeval-handler.getGameCamera().getyOffset()+strokeval>=body.getMinY()) && (yMidFrame-50-strokeval-handler.getGameCamera().getyOffset()<=body.getMinY())) {
+			if((rangestate==0) && (bodycolor!=1)){
+				collision = true;
+			}else if((rangestate==1) && (bodycolor!=0)) {
+				collision = true;
+			}else if((rangestate==2) && (bodycolor!=3)) {
+				collision = true;
+			}else if((rangestate==3) && (bodycolor!=2)) {
+				collision = true;
+			}else if((rangestate==0) && (bodycolor!=1)) {
+				collision = true;
+			}else collision = false;
 			
-		return false;
+		}else collision = false;
+		
+		return collision;
 	}
+
 
 }
