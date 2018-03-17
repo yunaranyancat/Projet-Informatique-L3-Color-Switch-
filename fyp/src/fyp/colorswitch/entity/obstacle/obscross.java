@@ -30,7 +30,7 @@ public class obscross extends Obstacle {
 	private int xsizeFrame = 500;
 	private int ysizeFrame = 700;
 	private int xMidFrame = xsizeFrame/2;
-	private float yMidFrame = ysizeFrame/2;
+	private float yMidFrame = yPosition;
 	
 	
 	public static final Color colors[] = {new Color(50, 226, 241),
@@ -43,6 +43,7 @@ public class obscross extends Obstacle {
 	public obscross(Handler handler, float yPosition) {
 		super(handler, yPosition);
 		// TODO Auto-generated constructor stub
+		yPosition = yPosition - handler.getGameCamera().getyOffset();
 		
 		Line2D lintop = new Line2D.Float(xMidFrame,yMidFrame-strokeval-100-handler.getGameCamera().getyOffset(),xMidFrame,yMidFrame-strokeval-handler.getGameCamera().getyOffset());
 		Line2D linright = new Line2D.Float(xMidFrame+strokeval,yMidFrame-handler.getGameCamera().getyOffset(),xMidFrame+100+strokeval,yMidFrame-handler.getGameCamera().getyOffset());
@@ -452,7 +453,6 @@ public class obscross extends Obstacle {
 	public boolean collidesWith(Ellipse2D.Double body, int bodycolor) {
 		// TODO Auto-generated method stub
 		if((body.getMinY()>=yMidFrame-strokeval-100-handler.getGameCamera().getyOffset()) && (body.getMaxY()<=yMidFrame+strokeval+100-handler.getGameCamera().getyOffset()) ) {
-			//if((state>=0 && state<15) || (state>=90 && state<105) || (state>=180 && state<195) || (state>=270 && state<285) || (state>=360-15) || (state>=90-15 && state<90) || (state>=180-15 && state<180) || (state>=270-15 && state<270)) {
 			if((state>=0 && state<15) || (state>=90 && state<105) || (state>=180 && state<195) || (state>=270 && state<285) || (state>=315 && state<330)) {
 			System.out.println("Collision!!");
 			return true;
