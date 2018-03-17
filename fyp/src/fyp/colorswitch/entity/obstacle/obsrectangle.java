@@ -26,7 +26,7 @@ public class obsrectangle extends Obstacle {
 	private int xsizeFrame = 500;
 	private int ysizeFrame = 700;
 	private int xMidFrame = xsizeFrame/2;
-	private float yMidFrame = ysizeFrame/2;
+	private float yMidFrame = yPosition;
 	
     Line2D linleft = new Line2D.Float(xMidFrame-50-strokeval,yMidFrame-50-handler.getGameCamera().getyOffset(),xMidFrame-50-strokeval,yMidFrame+50-handler.getGameCamera().getyOffset()); 
     Line2D lintop = new Line2D.Float(xMidFrame-50,yMidFrame-50-strokeval-handler.getGameCamera().getyOffset(),xMidFrame+50,yMidFrame-50-strokeval-handler.getGameCamera().getyOffset());
@@ -41,6 +41,7 @@ public class obsrectangle extends Obstacle {
 	
 	public obsrectangle(Handler handler, float yPosition) {
 		super(handler, yPosition);
+		yPosition = yPosition - handler.getGameCamera().getyOffset();
 		// TODO Auto-generated constructor stub
 		
 
