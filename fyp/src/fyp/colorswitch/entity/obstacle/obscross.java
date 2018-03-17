@@ -22,7 +22,6 @@ import fyp.colorswitch.Handler;
 
 public class obscross extends Obstacle {
 
-//	private float strokeval,xsizeFrame,ysizeFrame,xMidFrame,yMidFrame;
 
 	private static final int MAX_STATE = 359;
 	
@@ -37,6 +36,7 @@ public class obscross extends Obstacle {
 	        new Color(244, 222, 14), new Color(140, 18, 251), new Color(255, 0, 128)};
 	
 	private int state;
+	private int rangestate;
 	
 	private ArrayList<Line2D> lesCross;
 
@@ -121,7 +121,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(linleft);
 			
-			
+			rangestate = 0;
 		}else if(state >= 15 && state<30) {
 	        g2.setColor(colors[0]);
 			g2.draw(at15.createTransformedShape(lintop));
@@ -135,7 +135,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at15.createTransformedShape(linleft));
 			
-			
+			rangestate = 1;
 		}else if(state >= 30 && state<45) {
 	        g2.setColor(colors[0]);
 			g2.draw(at30.createTransformedShape(lintop));
@@ -149,7 +149,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at30.createTransformedShape(linleft));
 			
-			
+			rangestate = 2;
 		}else if(state >= 45 && state<60) {
 	        g2.setColor(colors[0]);
 			g2.draw(at45.createTransformedShape(lintop));
@@ -163,7 +163,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at45.createTransformedShape(linleft));
 			
-			
+			rangestate = 3;
 		}else if(state >= 60 && state<75) {
 	        g2.setColor(colors[0]);
 			g2.draw(at60.createTransformedShape(lintop));
@@ -177,7 +177,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at60.createTransformedShape(linleft));
 			
-			
+			rangestate = 4;
 		}else if(state >= 75 && state<90) {
 	        g2.setColor(colors[0]);
 			g2.draw(at75.createTransformedShape(lintop));
@@ -191,7 +191,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at75.createTransformedShape(linleft));
 			
-			
+			rangestate = 5;
 		}else if(state >= 90 && state<105) {
 	        g2.setColor(colors[0]);
 			g2.draw(at90.createTransformedShape(lintop));
@@ -205,7 +205,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at90.createTransformedShape(linleft));
 			
-			
+			rangestate = 6;
 		}else if(state >= 105 && state<120) {
 	        g2.setColor(colors[0]);
 			g2.draw(at105.createTransformedShape(lintop));
@@ -219,7 +219,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at105.createTransformedShape(linleft));
 			
-			
+			rangestate = 7;
 		}else if(state >= 120 && state<135) {
 	        g2.setColor(colors[0]);
 			g2.draw(at120.createTransformedShape(lintop));
@@ -233,7 +233,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at120.createTransformedShape(linleft));
 			
-			
+			rangestate = 8;
 		}else if(state >= 135 && state<150) {
 	        g2.setColor(colors[0]);
 			g2.draw(at135.createTransformedShape(lintop));
@@ -247,7 +247,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at135.createTransformedShape(linleft));
 			
-			
+			rangestate = 9;
 		}else if(state >= 150 && state<165) {
 	        g2.setColor(colors[0]);
 			g2.draw(at150.createTransformedShape(lintop));
@@ -261,7 +261,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at150.createTransformedShape(linleft));
 			
-			
+			rangestate = 10;
 		}else if(state >= 165 && state<180) {
 	        g2.setColor(colors[0]);
 			g2.draw(at165.createTransformedShape(lintop));
@@ -275,7 +275,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at165.createTransformedShape(linleft));
 			
-			
+			rangestate = 11;
 		}else if(state >= 180 && state<195) {
 	        g2.setColor(colors[0]);
 			g2.draw(at180.createTransformedShape(lintop));
@@ -289,7 +289,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at180.createTransformedShape(linleft));
 			
-			
+			rangestate = 12;
 		}else if(state >= 195 && state<210) {
 	        g2.setColor(colors[0]);
 			g2.draw(at195.createTransformedShape(lintop));
@@ -303,7 +303,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at195.createTransformedShape(linleft));
 			
-			
+			rangestate = 13;
 		}else if(state >= 210 && state<225) {
 	        g2.setColor(colors[0]);
 			g2.draw(at210.createTransformedShape(lintop));
@@ -317,7 +317,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at210.createTransformedShape(linleft));
 			
-			
+			rangestate = 14;
 		}else if(state >= 225 && state<240) {
 	        g2.setColor(colors[0]);
 			g2.draw(at225.createTransformedShape(lintop));
@@ -331,7 +331,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at225.createTransformedShape(linleft));
 			
-			
+			rangestate = 15;
 		}else if(state >= 240 && state<255) {
 	        g2.setColor(colors[0]);
 			g2.draw(at240.createTransformedShape(lintop));
@@ -345,7 +345,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at240.createTransformedShape(linleft));
 			
-			
+			rangestate = 16;
 		}else if(state >= 255 && state<270) {
 	        g2.setColor(colors[0]);
 			g2.draw(at255.createTransformedShape(lintop));
@@ -359,7 +359,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at255.createTransformedShape(linleft));
 			
-			
+			rangestate = 17;
 		}else if(state >= 270 && state<285) {
 	        g2.setColor(colors[0]);
 			g2.draw(at270.createTransformedShape(lintop));
@@ -373,7 +373,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at270.createTransformedShape(linleft));
 			
-			
+			rangestate = 18;
 		}else if(state >= 285 && state<300) {
 	        g2.setColor(colors[0]);
 			g2.draw(at285.createTransformedShape(lintop));
@@ -387,7 +387,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at285.createTransformedShape(linleft));
 			
-			
+			rangestate = 19;
 		}else if(state >= 300 && state<315) {
 	        g2.setColor(colors[0]);
 			g2.draw(at300.createTransformedShape(lintop));
@@ -401,7 +401,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at300.createTransformedShape(linleft));
 			
-			
+			rangestate = 20;
 		}else if(state >= 315 && state<330) {
 	        g2.setColor(colors[0]);
 			g2.draw(at315.createTransformedShape(lintop));
@@ -415,7 +415,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at315.createTransformedShape(linleft));
 			
-			
+			rangestate = 21;
 		}else if(state >= 330 && state<345) {
 	        g2.setColor(colors[0]);
 			g2.draw(at330.createTransformedShape(lintop));
@@ -429,7 +429,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at330.createTransformedShape(linleft));
 			
-			
+			rangestate = 22;
 		}else if(state >= 345 && state<360) {
 	        g2.setColor(colors[0]);
 			g2.draw(at345.createTransformedShape(lintop));
@@ -443,7 +443,7 @@ public class obscross extends Obstacle {
 			g2.setColor(colors[3]);
 			g2.draw(at345.createTransformedShape(linleft));
 			
-			
+			rangestate = 23;
 		}
 	}
 
@@ -451,14 +451,32 @@ public class obscross extends Obstacle {
 
 	@Override
 	public boolean collidesWith(Ellipse2D.Double body, int bodycolor) {
-		// TODO Auto-generated method stub
-		if((body.getMinY()>=yMidFrame-strokeval-100-handler.getGameCamera().getyOffset()) && (body.getMaxY()<=yMidFrame+strokeval+100-handler.getGameCamera().getyOffset()) ) {
-			if((state>=0 && state<15) || (state>=90 && state<105) || (state>=180 && state<195) || (state>=270 && state<285) || (state>=315 && state<330)) {
-			System.out.println("Collision!!");
-			return true;
-				}
-			return false;
-			}
-		return false;
+		boolean collision = false;
+		
+		//bot line collision
+		if((yMidFrame+strokeval-handler.getGameCamera().getyOffset()<=body.getCenterY()) && (yMidFrame+strokeval+100-handler.getGameCamera().getyOffset()>=body.getCenterX())) {
+			if(rangestate==23 || rangestate == 0 || rangestate == 1) {
+				if(bodycolor!=2) {collision = true;} else collision = false;
+			}else if(rangestate==6) {
+				if(bodycolor!=1) {collision = true;} else collision = false;
+			}else if(rangestate==12) {
+				if(bodycolor!=0) {collision = true;} else collision = false;
+			}else if(rangestate==18) {
+				if(bodycolor!=3) {collision = true;} else collision = false;
+			}else collision = false;
+				
+		//top line collision
+		}else if((yMidFrame-strokeval-100-handler.getGameCamera().getyOffset()<=body.getCenterY()) && (yMidFrame-strokeval-handler.getGameCamera().getyOffset()>=body.getCenterY()))
+			if(rangestate==23 || rangestate == 0 || rangestate == 1) {
+				if(bodycolor!=0) {collision = true;} else collision = false;
+			}else if(rangestate==5 || rangestate == 6 || rangestate == 7) {
+				if(bodycolor!=3) {collision = true;} else collision = false;
+			}else if(rangestate==11 || rangestate == 12 || rangestate == 13) {
+				if(bodycolor!=2) {collision = true;} else collision = false;
+			}else if(rangestate==17 || rangestate == 18 || rangestate == 19) {
+				if(bodycolor!=1) {collision = true;} else collision = false;
+			}else collision = false;
+		
+		return collision;
 	}
 }
