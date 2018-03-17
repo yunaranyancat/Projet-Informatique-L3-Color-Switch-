@@ -41,7 +41,7 @@ public class World {
 		//em.addEntity(new Cross(handler, 350));
 		//em.addEntity(new Bar(handler, 300));
 		// test
-		//em.addEntity(new obscross(handler, 200));
+		em.addEntity(new obscross(handler, 200));
 		//em.addEntity(new obsrectangle(handler,200));
 		//em.addEntity(new ScoreStar(handler, midHeight - 100, 10, 20));
 		switcher = new Switcher(handler, midHeight);
@@ -67,7 +67,7 @@ public class World {
 			System.out.println("there's a collision");
 		if(player.getyPosition() < em.getEntities().get(em.getEntities().size()-1).getyPosition()+200) 
 		{
-			randomSpawn();
+			//randomSpawn();
 		}
 		System.out.println(player.getyPosition());
 	}
